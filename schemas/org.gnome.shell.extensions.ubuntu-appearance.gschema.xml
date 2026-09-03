@@ -1,0 +1,127 @@
+<schemalist gettext-domain="login-background">
+  <schema id="org.gnome.shell.extensions.ubuntu-appearance"
+          path="/org/gnome/shell/extensions/ubuntu-appearance/">
+    <key name="selected-image" type="s">
+      <default>''</default>
+      <summary>Selected GDM background</summary>
+      <description>Path of the last image applied to the GDM login screen.</description>
+    </key>
+    <key name="desktop-image-label" type="s">
+      <default>''</default>
+      <summary>Desktop image label</summary>
+      <description>Original display name of the managed desktop wallpaper.</description>
+    </key>
+    <key name="login-image-label" type="s">
+      <default>''</default>
+      <summary>Login image label</summary>
+      <description>Original display name of the managed login background.</description>
+    </key>
+    <key name="plymouth-image" type="s">
+      <default>''</default>
+      <summary>Selected Plymouth background</summary>
+      <description>Path of the last image successfully applied to the boot and shutdown screen.</description>
+    </key>
+    <key name="plymouth-image-label" type="s">
+      <default>''</default>
+      <summary>Plymouth image label</summary>
+      <description>Original display name of the managed boot and shutdown background.</description>
+    </key>
+    <key name="image-directory" type="s">
+      <default>''</default>
+      <summary>Image directory</summary>
+      <description>Directory displayed in the extension image gallery.</description>
+    </key>
+    <key name="show-panel-icon" type="b">
+      <default>true</default>
+      <summary>Show panel icon</summary>
+      <description>Whether to show the Ubuntu Appearance icon in the top panel.</description>
+    </key>
+    <key name="show-network-speed" type="b">
+      <default>true</default>
+      <summary>Show network speed</summary>
+      <description>Whether to show live download and upload speeds in the top panel.</description>
+    </key>
+    <key name="network-speed-unit" type="s">
+      <default>'bytes'</default>
+      <summary>Network speed unit</summary>
+      <description>Display network speed in bytes or bits per second.</description>
+    </key>
+    <key name="network-speed-position" type="s">
+      <default>'right'</default>
+      <summary>Network speed position</summary>
+      <description>Display the network speed indicator on the left or right.</description>
+    </key>
+    <key name="bing-download-enabled" type="b">
+      <default>true</default>
+      <summary>Download Bing daily images</summary>
+      <description>Whether to check and download the Bing daily image in the background.</description>
+    </key>
+    <key name="bing-market" type="s">
+      <default>'auto'</default>
+      <summary>Bing market</summary>
+      <description>Market used when requesting the Bing daily image.</description>
+    </key>
+    <key name="bing-resolution" type="s">
+      <default>'auto'</default>
+      <summary>Bing image resolution</summary>
+      <description>Resolution used when downloading Bing images.</description>
+    </key>
+    <key name="bing-delete-old" type="b">
+      <default>false</default>
+      <summary>Delete old Bing images</summary>
+      <description>Whether downloaded Bing images older than the retention period are deleted.</description>
+    </key>
+    <key name="bing-retention-days" type="i">
+      <range min="1" max="365"/>
+      <default>30</default>
+      <summary>Bing image retention days</summary>
+      <description>Number of days to retain downloaded Bing images.</description>
+    </key>
+    <key name="bing-download-history" type="s">
+      <default>'[]'</default>
+      <summary>Bing download history</summary>
+      <description>Compact JSON record used for deduplication and cleanup.</description>
+    </key>
+    <key name="bing-favorite-images" type="as">
+      <default>[]</default>
+      <summary>Favorite Bing images</summary>
+      <description>Bing image identifiers protected from automatic cleanup.</description>
+    </key>
+    <key name="bing-manual-download-days" type="i">
+      <range min="1" max="8"/>
+      <default>8</default>
+      <summary>Manual download days</summary>
+      <description>Number of recent Bing daily images requested manually.</description>
+    </key>
+    <key name="bing-download-request" type="u">
+      <default>0</default>
+      <summary>Download request serial</summary>
+      <description>Incremented by preferences to request a manual download.</description>
+    </key>
+    <key name="bing-processed-download-request" type="u">
+      <default>0</default>
+      <summary>Processed download request serial</summary>
+      <description>Last manual download request completed by the background service.</description>
+    </key>
+    <key name="bing-download-state" type="s">
+      <default>'idle'</default>
+      <summary>Bing download state</summary>
+      <description>Current downloader state: idle, downloading, success or error.</description>
+    </key>
+    <key name="bing-last-download-count" type="i">
+      <default>0</default>
+      <summary>Last download count</summary>
+      <description>Number of new image files written by the last request.</description>
+    </key>
+    <key name="bing-download-error" type="s">
+      <default>''</default>
+      <summary>Last Bing download error</summary>
+      <description>Error produced by the last Bing request.</description>
+    </key>
+    <key name="hide-firmware-logo" type="b">
+      <default>false</default>
+      <summary>Hide manufacturer logo</summary>
+      <description>Whether the Plymouth theme hides the firmware manufacturer logo.</description>
+    </key>
+  </schema>
+</schemalist>

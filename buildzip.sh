@@ -9,5 +9,5 @@ python3 scripts/compile_po.py po/zh_CN.po \
 rm -f login-background@malingxspace.github.com.zip \
     ubuntu-appearance@malingxspace.github.com.zip
 zip -r ubuntu-appearance@malingxspace.github.com.zip \
-    metadata.json extension.js prefs.js utils.js stylesheet.css schemas locale
+    metadata.json extension.js prefs.js stylesheet.css src schemas locale
 echo "创建：$project_dir/ubuntu-appearance@malingxspace.github.com.zip"

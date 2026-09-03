@@ -1,3 +1,35 @@
 .bing-login-background-preview {
     border-radius: 8px;
 }
+
+.network-speed-indicator {
+    spacing: 10px;
+    height: 19px;
+    padding: 0 3px;
+    background-color: transparent;
+}
+
+.network-speed-panel-rate {
+    spacing: 2px;
+    width: 76px;
+    height: 19px;
+}
+
+.network-speed-panel-arrow {
+    width: 14px;
+    height: 14px;
+}
+
+.network-speed-panel-value {
+    font-size: 14px;
+    font-feature-settings: "tnum";
+    text-align: right;
+}
+
+.network-speed-download {
+    color: #5b9fc9;
+}
+
+.network-speed-upload {
+    color: #9b73c9;
+}

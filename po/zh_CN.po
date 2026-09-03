@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: ubuntu-appearance 17\n"
+"Project-Id-Version: ubuntu-appearance 48\n"
 "Language: zh_CN\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,11 +11,14 @@ msgstr "Ubuntu 外观"
 msgid "Customize Ubuntu system appearance, including login, boot and shutdown screens."
 msgstr "定制 Ubuntu 系统外观，包括登录、开机和关机画面。"
 
-msgid "Choose background…"
-msgstr "选择背景…"
+msgid "Open background settings"
+msgstr "打开背景设置"
 
-msgid "Use desktop background"
-msgstr "使用桌面背景"
+msgid "Random desktop wallpaper"
+msgstr "随机切换桌面壁纸"
+
+msgid "No other image is available in the selected folder."
+msgstr "所选文件夹中没有其他可用图片。"
 
 msgid "The current desktop background could not be found."
 msgstr "无法找到当前桌面背景图片。"
@@ -32,6 +35,66 @@ msgstr "更新失败。"
 msgid "Boot and login background"
 msgstr "启动与登录背景"
 
+msgid "Login background"
+msgstr "登录背景"
+
+msgid "Background settings"
+msgstr "背景设置"
+
+msgid "Login and boot background"
+msgstr "登录与开关机背景"
+
+msgid "Background actions"
+msgstr "背景操作"
+
+msgid "Desktop, login and boot backgrounds are configured independently."
+msgstr "桌面、登录和开关机画面可分别独立设置。"
+
+msgid "Current backgrounds"
+msgstr "当前背景"
+
+msgid "Managed by Ubuntu Appearance"
+msgstr "由 Ubuntu Appearance 管理"
+
+msgid "%s · Saved copy"
+msgstr "%s · 已保存安全副本"
+
+msgid "Saved copy"
+msgstr "已保存安全副本"
+
+msgid "Change…"
+msgstr "更换…"
+
+msgid "Working…"
+msgstr "处理中…"
+
+msgid "More actions"
+msgstr "更多操作"
+
+msgid "Desktop wallpaper"
+msgstr "桌面壁纸"
+
+msgid "Login screen"
+msgstr "登录界面"
+
+msgid "Boot and shutdown screen"
+msgstr "开关机画面"
+
+msgid "No desktop image found."
+msgstr "未找到桌面壁纸。"
+
+msgid "System default background"
+msgstr "系统默认背景"
+
+msgid "System default boot screen"
+msgstr "系统默认开关机画面"
+
+msgid "Bing images"
+msgstr "Bing 图片"
+
+msgid "Download location"
+msgstr "下载位置"
+
 msgid "Choose a local image for the Ubuntu login screen."
 msgstr "选择本地图片作为 Ubuntu 登录界面的背景。"
 
@@ -41,8 +104,83 @@ msgstr "显示顶部图标"
 msgid "Show background controls in the top panel."
 msgstr "在顶部面板中显示背景控制菜单。"
 
+msgid "Top panel"
+msgstr "顶部面板"
+
+msgid "Background shortcut"
+msgstr "背景快捷入口"
+
+msgid "Live network speed"
+msgstr "实时网速"
+
+msgid "Configure the live network speed indicator."
+msgstr "配置实时网速指示器。"
+
+msgid "Show network speed"
+msgstr "显示实时网速"
+
+msgid "Show live download and upload speeds in the top panel."
+msgstr "在顶部面板中显示实时下载和上传速度。"
+
+msgid "Speed unit"
+msgstr "速度单位"
+
+msgid "Bytes per second"
+msgstr "字节每秒"
+
+msgid "Bits per second"
+msgstr "比特每秒"
+
+msgid "Display position"
+msgstr "显示位置"
+
+msgid "Right"
+msgstr "右侧"
+
+msgid "Left"
+msgstr "左侧"
+
 msgid "Customize boot and shutdown"
 msgstr "定制开机与关机画面"
+
+msgid "Boot"
+msgstr "设为开关机"
+
+msgid "Choose boot image…"
+msgstr "选择开关机图片…"
+
+msgid "Choose boot and shutdown image"
+msgstr "选择开关机图片"
+
+msgid "Restore login default"
+msgstr "恢复登录默认"
+
+msgid "Restore boot default"
+msgstr "恢复开关机默认"
+
+msgid "Manufacturer logo"
+msgstr "厂商 Logo"
+
+msgid "Boot options"
+msgstr "开关机选项"
+
+msgid "Show the manufacturer logo on the boot and shutdown screen. Changing this requires administrator authentication and may take some time."
+msgstr "在开关机画面中显示厂商 Logo。修改时需要管理员认证，并可能需要一些时间。"
+
+msgid "Only affects the boot and shutdown screen. Changes require administrator authentication and update initramfs."
+msgstr "仅影响开关机画面；修改需要管理员认证并更新 initramfs。"
+
+msgid "The manufacturer logo is hidden."
+msgstr "当前已隐藏厂商 Logo。"
+
+msgid "The manufacturer logo is visible."
+msgstr "当前显示厂商 Logo。"
+
+msgid "Set a boot image before changing the manufacturer logo."
+msgstr "请先设置开关机画面，再更改厂商 Logo。"
+
+msgid "Show manufacturer logo"
+msgstr "显示厂商 Logo"
 
 msgid "Apply the selected image to Plymouth when updating the background."
 msgstr "应用背景时，将所选图片同时设置到 Plymouth。"
@@ -56,6 +194,129 @@ msgstr "隐藏开机画面中的 HUAWEI 等固件 Logo。"
 msgid "Image folder"
 msgstr "图片文件夹"
 
+msgid "Image and download folder"
+msgstr "图片与下载文件夹"
+
+msgid "Download folder"
+msgstr "下载文件夹"
+
+msgid "Bing daily images"
+msgstr "Bing 每日图片"
+
+msgid "Download settings"
+msgstr "下载设置"
+
+msgid "Automatic downloads do not change the desktop or login background."
+msgstr "自动下载不会自动更改桌面壁纸或登录背景。"
+
+msgid "Storage and cleanup"
+msgstr "存储与清理"
+
+msgid "Download images to the image folder without changing the desktop wallpaper."
+msgstr "将图片下载到图片文件夹，但不修改桌面壁纸。"
+
+msgid "Automatically download daily image"
+msgstr "自动下载每日图片"
+
+msgid "Check at startup and again when Bing publishes the next image."
+msgstr "启动时检查，并在 Bing 发布下一张图片时再次检查。"
+
+msgid "Recent images"
+msgstr "最近图片天数"
+
+msgid "Bing provides up to the most recent 8 daily images."
+msgstr "Bing 最多提供最近 8 天的每日图片。"
+
+msgid "Manual download"
+msgstr "手动下载"
+
+msgid "Download now"
+msgstr "立即下载"
+
+msgid "Waiting for the background service…"
+msgstr "正在等待后台服务…"
+
+msgid "Downloading…"
+msgstr "正在下载…"
+
+msgid "All requested images have already been downloaded."
+msgstr "请求的图片均已下载，无需重复下载。"
+
+msgid "%d new images downloaded."
+msgstr "已下载 %d 张新图片。"
+
+msgid "Download failed: %s"
+msgstr "下载失败：%s"
+
+msgid "Download recent Bing images immediately."
+msgstr "立即下载指定天数内的 Bing 图片。"
+
+msgid "Market and region"
+msgstr "市场与地区"
+
+msgid "Download resolution"
+msgstr "下载分辨率"
+
+msgid "Automatic"
+msgstr "自动"
+
+msgid "Automatic selects a size for the primary display."
+msgstr "自动模式根据主显示器选择尺寸。"
+
+msgid "Automatically delete old images"
+msgstr "自动删除旧图片"
+
+msgid "Only images downloaded and recorded by this extension are deleted."
+msgstr "只删除由本扩展下载并记录的图片。"
+
+msgid "Retention period"
+msgstr "保留期限"
+
+msgid "Days to keep downloaded Bing images."
+msgstr "下载的 Bing 图片保留天数。"
+
+msgid "Download history"
+msgstr "下载记录"
+
+msgid "Downloaded images"
+msgstr "图片列表"
+
+msgid "Favorited"
+msgstr "已收藏"
+
+msgid "Not favorited"
+msgstr "未收藏"
+
+msgid "Desktop"
+msgstr "设为桌面"
+
+msgid "Login"
+msgstr "设为登录"
+
+msgid "No images downloaded yet."
+msgstr "尚未下载图片。"
+
+msgid "File path unavailable"
+msgstr "文件路径不可用"
+
+msgid "File missing"
+msgstr "文件已缺失"
+
+msgid "Set as…"
+msgstr "设置为…"
+
+msgid "Set boot and shutdown"
+msgstr "设为开关机画面"
+
+msgid "%d downloaded, %d favorites."
+msgstr "已下载 %d 张，收藏 %d 张。"
+
+msgid "Add to favorites"
+msgstr "添加到收藏"
+
+msgid "Remove from favorites"
+msgstr "取消收藏"
+
 msgid "Choose folder…"
 msgstr "选择文件夹…"
 
@@ -65,11 +326,23 @@ msgstr "操作"
 msgid "Choose image…"
 msgstr "选择图片…"
 
+msgid "Choose desktop image…"
+msgstr "选择桌面图片…"
+
+msgid "Choose login image…"
+msgstr "选择登录图片…"
+
+msgid "Choose desktop wallpaper"
+msgstr "选择桌面壁纸"
+
 msgid "Refresh"
 msgstr "刷新"
 
 msgid "Restore default"
 msgstr "恢复默认"
+
+msgid "Restore login and boot defaults"
+msgstr "恢复登录与开关机默认设置"
 
 msgid "Status"
 msgstr "状态"
@@ -91,6 +364,39 @@ msgstr "已选择"
 
 msgid "Apply"
 msgstr "应用"
+
+msgid "Set desktop"
+msgstr "设为桌面"
+
+msgid "Desktop in use"
+msgstr "桌面使用中"
+
+msgid "Set login"
+msgstr "设为登录"
+
+msgid "Login in use"
+msgstr "登录使用中"
+
+msgid "Setting desktop wallpaper…"
+msgstr "正在设置桌面壁纸…"
+
+msgid "Desktop wallpaper updated."
+msgstr "桌面壁纸已更新。"
+
+msgid "Boot and shutdown screen updated."
+msgstr "开关机画面已更新。"
+
+msgid "Default login background restored."
+msgstr "已恢复默认登录背景。"
+
+msgid "Default boot and shutdown screen restored."
+msgstr "已恢复默认开关机画面。"
+
+msgid "Manufacturer logo hidden."
+msgstr "厂商 Logo 已隐藏。"
+
+msgid "Manufacturer logo restored."
+msgstr "厂商 Logo 已恢复。"
 
 msgid "Waiting for administrator authentication…"
 msgstr "正在等待管理员认证…"

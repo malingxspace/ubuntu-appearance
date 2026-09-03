@@ -16,16 +16,23 @@ python3 "$project_dir/scripts/compile_po.py" "$project_dir/po/zh_CN.po" \
     "$project_dir/locale/zh_CN/LC_MESSAGES/login-background.mo"
 install -d -m 0755 "$extension_root/schemas" \
     "$extension_root/locale/zh_CN/LC_MESSAGES"
+rm -rf -- "$extension_root/src"
+cp -a "$project_dir/src" "$extension_root/src"
 install -m 0644 "$project_dir/metadata.json" "$extension_root/metadata.json"
 install -m 0644 "$project_dir/extension.js" "$extension_root/extension.js"
 install -m 0644 "$project_dir/prefs.js" "$extension_root/prefs.js"
-install -m 0644 "$project_dir/utils.js" "$extension_root/utils.js"
 install -m 0644 "$project_dir/stylesheet.css" "$extension_root/stylesheet.css"
 install -m 0644 "$project_dir/locale/zh_CN/LC_MESSAGES/login-background.mo" \
     "$extension_root/locale/zh_CN/LC_MESSAGES/"
-install -m 0644 "$project_dir/schemas/org.gnome.shell.extensions.login-background.gschema.xml" \
+rm -f -- "$extension_root/schemas/org.gnome.shell.extensions.login-background.gschema.xml"
+install -m 0644 "$project_dir/schemas/org.gnome.shell.extensions.ubuntu-appearance.gschema.xml" \
     "$extension_root/schemas/"
 glib-compile-schemas "$extension_root/schemas"
+rm -f -- "$extension_root/appNetworkMonitor.js" \
+    "$extension_root/loginBackgroundIndicator.js" \
+    "$extension_root/networkIndicator.js" \
+    "$extension_root/networkMonitor.js" \
+    "$extension_root/utils.js"
 
 if [[ -d "$legacy_root" ]]; then
     rm -rf -- "$legacy_root"

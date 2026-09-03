@@ -1,107 +1,96 @@
-import St from 'gi://St';
-import GObject from 'gi://GObject';
-
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
-import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
-import {Button} from 'resource:///org/gnome/shell/ui/panelMenu.js';
-import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
-import * as Utils from './utils.js';
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-const IndicatorName = 'LoginBackgroundIndicator';
+import {
+    LOGIN_BACKGROUND_INDICATOR_NAME,
+    LoginBackgroundIndicator,
+} from './src/shell/backgroundIndicator.js';
+import {
+    NETWORK_INDICATOR_NAME,
+    NetworkSpeedIndicator,
+} from './src/shell/networkIndicator.js';
+import {EXTENSION_SCHEMA, SETTINGS_KEYS} from './src/config/constants.js';
+import {BingDownloadService} from './src/bing/downloadService.js';
 
-const LoginBackgroundIndicator = GObject.registerClass(
-class LoginBackgroundIndicator extends Button {
-    _init(settings) {
-        super._init(0, IndicatorName, false);
-        this._settings = settings;
+function primaryDisplaySize() {
+    const monitor = Main.layoutManager.primaryMonitor;
+    return monitor
+        ? {width: monitor.width, height: monitor.height}
+        : {width: 3840, height: 2160};
+}
 
-        this.add_child(new St.Icon({
-            icon_name: 'preferences-desktop-wallpaper-symbolic',
-            style_class: 'system-status-icon',
-        }));
-
-        const selectItem = new PopupMenu.PopupMenuItem(_('Choose background…'));
-        selectItem.connect('activate', () => this._chooseImage());
-        this.menu.addMenuItem(selectItem);
-
-        const currentItem = new PopupMenu.PopupMenuItem(_('Use desktop background'));
-        currentItem.connect('activate', () => this._applyDesktopImage());
-        this.menu.addMenuItem(currentItem);
-    }
-
-    _applyDesktopImage() {
-        const image = Utils.getDesktopImage();
-        if (!image) {
-            Main.notifyError(_('Ubuntu Appearance'),
-                _('The current desktop background could not be found.'));
-            return;
-        }
-        this._applyImage(image);
-    }
-
-    _chooseImage() {
-        Utils.chooseImage((image, error) => {
-            if (error) {
-                Main.notifyError(_('Ubuntu Appearance'), error);
-                return;
-            }
-            if (image)
-                this._applyImage(image);
-        });
-    }
-
-    _applyImage(image) {
-        Utils.applyImage(
-            image,
-            this._settings.get_boolean('customize-plymouth'),
-            this._settings.get_boolean('hide-firmware-logo'),
-            (success, message) => {
-                if (success) {
-                    this._settings.set_string('selected-image', image);
-                    Main.notify(_('Ubuntu Appearance'), _('Login background updated.'));
-                } else {
-                    Main.notifyError(_('Ubuntu Appearance'), message || _('Update failed.'));
-                }
-            });
-    }
-
-    stop() {
-        this.menu.removeAll();
-    }
-});
-
-export default class LoginBackgroundExtension extends Extension {
+export default class UbuntuAppearanceExtension extends Extension {
     enable() {
-        this._settings = this.getSettings(Utils.EXTENSION_SCHEMA);
-        this._visibilityChangedId = this._settings.connect(
-            'changed::show-panel-icon', () => this._syncIndicator());
-        this._syncIndicator();
+        this._settings = this.getSettings(EXTENSION_SCHEMA);
+        this._settings.connectObject(
+            `changed::${SETTINGS_KEYS.showPanelIcon}`,
+            () => this._syncBackgroundIndicator(),
+            `changed::${SETTINGS_KEYS.showNetworkSpeed}`,
+            () => this._syncNetworkIndicator(),
+            `changed::${SETTINGS_KEYS.networkSpeedPosition}`,
+            () => this._syncNetworkIndicator(true),
+            this);
+
+        this._syncBackgroundIndicator();
+        this._syncNetworkIndicator();
+        this._bingDownloader = new BingDownloadService(
+            this._settings, primaryDisplaySize);
+        this._bingDownloader.start();
     }
 
     disable() {
-        if (this._visibilityChangedId) {
-            this._settings.disconnect(this._visibilityChangedId);
-            this._visibilityChangedId = null;
-        }
-        this._destroyIndicator();
+        this._settings?.disconnectObject(this);
+        this._bingDownloader?.stop();
+        this._bingDownloader = null;
+        this._destroyBackgroundIndicator();
+        this._destroyNetworkIndicator();
         this._settings = null;
     }
 
-    _syncIndicator() {
-        if (this._settings.get_boolean('show-panel-icon')) {
-            if (!this._indicator) {
-                this._indicator = new LoginBackgroundIndicator(this._settings);
-                Main.panel.addToStatusArea(IndicatorName, this._indicator);
-            }
+    _syncBackgroundIndicator() {
+        if (!this._settings.get_boolean(SETTINGS_KEYS.showPanelIcon)) {
+            this._destroyBackgroundIndicator();
             return;
         }
+        if (this._backgroundIndicator)
+            return;
 
-        this._destroyIndicator();
+        this._backgroundIndicator = new LoginBackgroundIndicator(
+            this._settings, () => this.openPreferences());
+        Main.panel.addToStatusArea(
+            LOGIN_BACKGROUND_INDICATOR_NAME, this._backgroundIndicator);
     }
 
-    _destroyIndicator() {
-        this._indicator?.stop();
-        this._indicator?.destroy();
-        this._indicator = null;
+    _syncNetworkIndicator(recreate = false) {
+        if (!this._settings.get_boolean(SETTINGS_KEYS.showNetworkSpeed)) {
+            this._destroyNetworkIndicator();
+            return;
+        }
+        if (this._networkIndicator && !recreate)
+            return;
+
+        this._destroyNetworkIndicator();
+        this._networkIndicator = new NetworkSpeedIndicator(this._settings);
+        Main.panel.addToStatusArea(
+            NETWORK_INDICATOR_NAME,
+            this._networkIndicator,
+            0,
+            this._networkPosition());
+    }
+
+    _networkPosition() {
+        return this._settings.get_string(SETTINGS_KEYS.networkSpeedPosition) === 'left'
+            ? 'left' : 'right';
+    }
+
+    _destroyBackgroundIndicator() {
+        this._backgroundIndicator?.destroy();
+        this._backgroundIndicator = null;
+    }
+
+    _destroyNetworkIndicator() {
+        this._networkIndicator?.stop();
+        this._networkIndicator?.destroy();
+        this._networkIndicator = null;
     }
 }
