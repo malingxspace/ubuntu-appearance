@@ -1,0 +1,19 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Build artifacts
+*.zip
+schemas/gschemas.compiled
+locale/*/LC_MESSAGES/*.mo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+*~

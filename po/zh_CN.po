@@ -1,0 +1,108 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ubuntu-appearance 17\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Ubuntu Appearance"
+msgstr "Ubuntu 外观"
+
+msgid "Customize Ubuntu system appearance, including login, boot and shutdown screens."
+msgstr "定制 Ubuntu 系统外观，包括登录、开机和关机画面。"
+
+msgid "Choose background…"
+msgstr "选择背景…"
+
+msgid "Use desktop background"
+msgstr "使用桌面背景"
+
+msgid "The current desktop background could not be found."
+msgstr "无法找到当前桌面背景图片。"
+
+msgid "Login background updated."
+msgstr "登录背景已更新。"
+
+msgid "Login background and boot theme updated."
+msgstr "登录背景和开关机主题已更新。"
+
+msgid "Update failed."
+msgstr "更新失败。"
+
+msgid "Boot and login background"
+msgstr "启动与登录背景"
+
+msgid "Choose a local image for the Ubuntu login screen."
+msgstr "选择本地图片作为 Ubuntu 登录界面的背景。"
+
+msgid "Show panel icon"
+msgstr "显示顶部图标"
+
+msgid "Show background controls in the top panel."
+msgstr "在顶部面板中显示背景控制菜单。"
+
+msgid "Customize boot and shutdown"
+msgstr "定制开机与关机画面"
+
+msgid "Apply the selected image to Plymouth when updating the background."
+msgstr "应用背景时，将所选图片同时设置到 Plymouth。"
+
+msgid "Hide manufacturer logo"
+msgstr "隐藏厂商 Logo"
+
+msgid "Hide firmware logos such as HUAWEI on the boot screen."
+msgstr "隐藏开机画面中的 HUAWEI 等固件 Logo。"
+
+msgid "Image folder"
+msgstr "图片文件夹"
+
+msgid "Choose folder…"
+msgstr "选择文件夹…"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "Choose image…"
+msgstr "选择图片…"
+
+msgid "Refresh"
+msgstr "刷新"
+
+msgid "Restore default"
+msgstr "恢复默认"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Select an image to begin."
+msgstr "请选择一张图片。"
+
+msgid "Available images"
+msgstr "可用图片"
+
+msgid "No images found."
+msgstr "没有找到图片。"
+
+msgid "Found %d images."
+msgstr "找到 %d 张图片。"
+
+msgid "selected"
+msgstr "已选择"
+
+msgid "Apply"
+msgstr "应用"
+
+msgid "Waiting for administrator authentication…"
+msgstr "正在等待管理员认证…"
+
+msgid "Choose image folder"
+msgstr "选择图片文件夹"
+
+msgid "Choose login background"
+msgstr "选择登录背景"
+
+msgid "Only JPG, PNG and WEBP images are supported."
+msgstr "仅支持 JPG、PNG 和 WEBP 图片。"
+
+msgid "Default background and Ubuntu logo restored."
+msgstr "已恢复默认背景和 Ubuntu Logo。"

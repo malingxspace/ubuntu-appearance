@@ -1,0 +1,9 @@
+{
+  "uuid": "ubuntu-appearance@malingxspace.github.com",
+  "name": "Ubuntu Appearance",
+  "description": "Customize Ubuntu system appearance, including login, boot and shutdown screens.",
+  "gettext-domain": "login-background",
+  "shell-version": ["45", "46", "47", "48", "49", "50"],
+  "version": 17,
+  "settings-schema": "org.gnome.shell.extensions.login-background"
+}
