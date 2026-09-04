@@ -33,3 +33,34 @@
 .network-speed-upload {
     color: #9b73c9;
 }
+
+.network-speed-app-header,
+.network-speed-app-row {
+    spacing: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.network-speed-app-header {
+    font-weight: bold;
+}
+
+.network-speed-app-name {
+    width: 140px;
+}
+
+.network-speed-app-value {
+    width: 82px;
+    font-feature-settings: "tnum";
+    text-align: right;
+}
+
+.network-speed-app-empty,
+.network-speed-app-note {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.network-speed-app-note {
+    font-size: 0.85em;
+}

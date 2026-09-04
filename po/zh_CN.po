@@ -140,6 +140,27 @@ msgstr "右侧"
 msgid "Left"
 msgstr "左侧"
 
+msgid "Application"
+msgstr "应用"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Collecting application network rates…"
+msgstr "正在采集应用网络速率…"
+
+msgid "Unable to read application network rates"
+msgstr "无法读取应用网络速率"
+
+msgid "No active application TCP connections"
+msgstr "暂无活动的应用 TCP 连接"
+
+msgid "Current user TCP connections only"
+msgstr "仅统计当前用户的 TCP 连接"
+
 msgid "Customize boot and shutdown"
 msgstr "定制开机与关机画面"
 

@@ -12,3 +12,7 @@ export function formatRate(bytesPerSecond, unit = 'bytes') {
     const digits = index === 0 ? 0 : (index === 1 && value >= 10 ? 0 : 1);
     return `${value.toFixed(digits)} ${units[index]}`;
 }
+
+export function isDisplayedRateZero(bytesPerSecond, unit = 'bytes') {
+    return formatRate(bytesPerSecond, unit) === formatRate(0, unit);
+}

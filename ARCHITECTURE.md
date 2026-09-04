@@ -17,10 +17,11 @@ prefs.js ─────> src/preferences ──> src/appearance
 
 - `src/config`: schema identifiers and setting keys. This is the single source
   of truth for settings used by both the Shell process and preferences process.
-- `src/network`: Linux `/proc` parsing, rate formatting, and timed sampling.
-  Parsers and formatting are GI-independent and covered by smoke tests.
-- `src/shell`: top-panel actors. The network indicator only renders the latest
-  sample and intentionally creates no popup menu.
+- `src/network`: Linux `/proc` total-rate sampling, on-demand `ss` TCP
+  application sampling, parsing, and rate formatting. Parsers and formatting
+  are GI-independent and covered by smoke tests.
+- `src/shell`: top-panel actors. The network indicator renders the latest total
+  sample and opens an application-rate menu on click.
 - `src/bing`: Bing metadata access, download scheduling, deduplication,
   compact history, resolution selection, and bounded cleanup. It never writes
   desktop wallpaper settings.
@@ -28,8 +29,9 @@ prefs.js ─────> src/preferences ──> src/appearance
   the desktop portal file chooser.
 - `src/appearance`: application-level workflows plus image and session state
   changes.
-- `src/privileged`: the fixed privileged script and the only subprocess entry
-  point. Callers pass structured options rather than constructing commands.
+- `src/privileged`: the fixed privileged script and the only privileged
+  subprocess entry point. Callers pass structured options rather than
+  constructing commands.
 - `src/preferences`: preferences composition and feature-specific groups.
 
 Root `extension.js` and `prefs.js` are entrypoints only. Infrastructure must
