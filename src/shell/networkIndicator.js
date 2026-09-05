@@ -1,5 +1,7 @@
 import Clutter from 'gi://Clutter';
+import Gio from 'gi://Gio';
 import GObject from 'gi://GObject';
+import Pango from 'gi://Pango';
 import St from 'gi://St';
 
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
@@ -14,17 +16,16 @@ import {formatRate, isDisplayedRateZero} from '../network/rateFormatter.js';
 export const NETWORK_INDICATOR_NAME = 'NetworkSpeedIndicator';
 const MAX_APPLICATION_ROWS = 8;
 
-function addPanelRate(parent, arrowIcon, colorClass) {
+function addPanelRate(parent, arrowIconPath, colorClass) {
     const group = new St.BoxLayout({
         style_class: 'network-speed-panel-rate',
         orientation: Clutter.Orientation.HORIZONTAL,
         y_align: Clutter.ActorAlign.CENTER,
     });
     const arrow = new St.Icon({
-        icon_name: arrowIcon,
-        icon_size: 14,
+        gicon: Gio.icon_new_for_string(arrowIconPath),
+        icon_size: 12,
         style_class: `network-speed-panel-arrow ${colorClass}`,
-        x_expand: false,
         y_align: Clutter.ActorAlign.CENTER,
     });
     group.add_child(arrow);
@@ -41,13 +42,15 @@ function addPanelRate(parent, arrowIcon, colorClass) {
 
 export const NetworkSpeedIndicator = GObject.registerClass(
 class NetworkSpeedIndicator extends Button {
-    _init(settings) {
+    _init(settings, extensionDir) {
         super._init(0, NETWORK_INDICATOR_NAME, false);
         this._settings = settings;
         this._rate = null;
         this._applicationRates = [];
         this._applicationError = null;
         this._applicationReady = false;
+        const iconDir = extensionDir
+            ? `${extensionDir}/icons` : null;
 
         const box = new St.BoxLayout({
             style_class: 'network-speed-indicator',
@@ -55,9 +58,13 @@ class NetworkSpeedIndicator extends Button {
             y_align: Clutter.ActorAlign.CENTER,
         });
         this._downloadLabel = addPanelRate(
-            box, 'go-down-symbolic', 'network-speed-download');
+            box,
+            iconDir ? `${iconDir}/download-arrow.svg` : 'go-down-symbolic',
+            'network-speed-download');
         this._uploadLabel = addPanelRate(
-            box, 'go-up-symbolic', 'network-speed-upload');
+            box,
+            iconDir ? `${iconDir}/upload-arrow.svg` : 'go-up-symbolic',
+            'network-speed-upload');
         this.add_child(box);
         this._buildApplicationMenu();
 
@@ -122,6 +129,7 @@ class NetworkSpeedIndicator extends Button {
                 style_class: 'network-speed-app-row',
             });
             const name = new St.Label({style_class: 'network-speed-app-name'});
+            name.clutter_text.ellipsize = Pango.EllipsizeMode.END;
             const download = new St.Label({style_class: 'network-speed-app-value'});
             const upload = new St.Label({style_class: 'network-speed-app-value'});
             item.add_child(name);
@@ -138,13 +146,6 @@ class NetworkSpeedIndicator extends Button {
                 style_class: 'network-speed-app-empty',
             });
         this.menu.addMenuItem(this._applicationEmpty);
-        this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-        this.menu.addMenuItem(new PopupMenu.PopupMenuItem(
-            _('Current user TCP connections only'), {
-                reactive: false,
-                can_focus: false,
-                style_class: 'network-speed-app-note',
-            }));
         this._renderApplications();
     }
 

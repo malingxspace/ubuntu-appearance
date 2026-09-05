@@ -70,7 +70,8 @@ export default class UbuntuAppearanceExtension extends Extension {
             return;
 
         this._destroyNetworkIndicator();
-        this._networkIndicator = new NetworkSpeedIndicator(this._settings);
+        this._networkIndicator = new NetworkSpeedIndicator(
+            this._settings, this.path);
         Main.panel.addToStatusArea(
             NETWORK_INDICATOR_NAME,
             this._networkIndicator,

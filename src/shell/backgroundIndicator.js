@@ -16,9 +16,10 @@ export const LoginBackgroundIndicator = GObject.registerClass(
 class LoginBackgroundIndicator extends Button {
     _init(settings, openPreferences) {
         super._init(0, LOGIN_BACKGROUND_INDICATOR_NAME, false);
+        this.add_style_class_name('background-quick-entry-button');
         this.add_child(new St.Icon({
             icon_name: 'preferences-desktop-wallpaper-symbolic',
-            style_class: 'system-status-icon',
+            style_class: 'background-quick-entry-icon',
         }));
 
         const preferencesItem = new PopupMenu.PopupMenuItem(

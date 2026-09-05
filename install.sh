@@ -15,9 +15,11 @@ legacy_root="${XDG_DATA_HOME:-$HOME/.local/share}/gnome-shell/extensions/$legacy
 python3 "$project_dir/scripts/compile_po.py" "$project_dir/po/zh_CN.po" \
     "$project_dir/locale/zh_CN/LC_MESSAGES/login-background.mo"
 install -d -m 0755 "$extension_root/schemas" \
+    "$extension_root/icons" \
     "$extension_root/locale/zh_CN/LC_MESSAGES"
 rm -rf -- "$extension_root/src"
 cp -a "$project_dir/src" "$extension_root/src"
+cp -a "$project_dir/icons/." "$extension_root/icons/"
 install -m 0644 "$project_dir/metadata.json" "$extension_root/metadata.json"
 install -m 0644 "$project_dir/extension.js" "$extension_root/extension.js"
 install -m 0644 "$project_dir/prefs.js" "$extension_root/prefs.js"

@@ -2,26 +2,34 @@
     border-radius: 8px;
 }
 
+#panel .background-quick-entry-button {
+    -natural-hpadding: 4px;
+    -minimum-hpadding: 2px;
+}
+
+#panel .background-quick-entry-button .background-quick-entry-icon {
+    icon-size: 13px;
+    padding: 0;
+    margin: 0;
+}
+
 .network-speed-indicator {
-    spacing: 10px;
-    height: 19px;
-    padding: 0 3px;
+    spacing: 6px;
+    padding: 0 2px;
     background-color: transparent;
 }
 
 .network-speed-panel-rate {
     spacing: 2px;
-    width: 76px;
-    height: 19px;
 }
 
 .network-speed-panel-arrow {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
 }
 
 .network-speed-panel-value {
-    font-size: 14px;
+    min-width: 46px;
     font-feature-settings: "tnum";
     text-align: right;
 }
@@ -55,12 +63,7 @@
     text-align: right;
 }
 
-.network-speed-app-empty,
-.network-speed-app-note {
+.network-speed-app-empty {
     padding-top: 3px;
     padding-bottom: 3px;
-}
-
-.network-speed-app-note {
-    font-size: 0.85em;
 }
